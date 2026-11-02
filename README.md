@@ -72,6 +72,12 @@ agent-system/
 │   └── events.jsonl   事件流水（运行时生成）
 ├── tests/
 │   └── selftest.py    冒烟测试（15 项，纯标准库，可进 CI）
+├── skills/            七份技能手册副本（Router / 管家 / 五个 Worker）
+│   ├── agent-router/SKILL.md
+│   ├── system-steward/SKILL.md
+│   └── <worker>/SKILL.md
+├── examples/
+│   └── events.jsonl   示例事件流（含直通 / 噪音 / 歧义三种情况）
 └── workers/           五个 Worker 的能力声明
     ├── reading-collector.json
     ├── video-notes.json
@@ -82,6 +88,16 @@ agent-system/
 
 Worker 的**操作手册**在技能目录，不在本仓库：`/var/minis/skills/<name>/SKILL.md`。
 本仓库存的是**能力声明**（触发词、来源、prompt），技能存的是**怎么做**。
+本仓库存两份东西：**能力声明**（`workers/*.json`：触发词、来源、prompt）
+和**操作手册副本**（`skills/<name>/SKILL.md`：具体怎么做）。
+
+运行时技能要从 `skills/` 装到 agent 的技能目录（Minis 上是 `/var/minis/skills/`）：
+
+```bash
+cp -r skills/* /var/minis/skills/
+```
+
+`workers/*.json` 里的 `skill` 字段指向运行时的路径，换宿主时改这一处即可。
 
 ---
 
@@ -103,6 +119,33 @@ Worker 的**操作手册**在技能目录，不在本仓库：`/var/minis/skills
 **元角色**（不参与路由，也不该有 Worker 定义）：
 `agent-router`（统一入口）、`system-steward`（架构管家）、`skill-creator`、`guided-learning`。
 `validate.py` 会把给它们写 worker 定义的情况报成 error（E5）。
+
+---
+
+## 三·五、三十秒验证
+
+```bash
+python3 tests/selftest.py                     # 15 项，应全绿
+python3 router/validate.py                    # error 必须为 0
+python3 router/router.py --events examples/events.jsonl
+```
+
+示例事件流会同时演示三件事：
+
+```
+收到 5 条候选，已分派 4 项
+  · [新建] reading-collector ← 关键词命中 3 个
+  · [新建] github-maintainer ← 关键词命中 1 个
+  · [续接] github-maintainer ← 该 Thread 已有归属，直通
+  · [新建] video-notes ← 关键词命中 4 个
+  ? 未归属：英语 语文 作文
+```
+
+- **直通**：pr-42 的第二条没再让 Router 判断
+- **噪音过滤**：「收到」根本没进候选
+- **歧义不猜**：两个语料库都能接，报未归属而不是随便选一个
+
+> `--dry-run` 不写状态，所以直通不会生效——想看直通要去掉这个参数。
 
 ---
 
