@@ -1,0 +1,12 @@
+{"id": "trig-1a19a64187e", "thread": "user-trig-1a19a64187e", "source": "user", "title": "帮我整理收集一下待办", "inline": "帮我整理收集一下待办", "spilled": false, "spill_ref": null, "at": 1793591613, "reason": "来源 user 标记为明确的请求", "verdict": "accepted"}
+{"id": "trig-1a19a641881", "thread": "pr-42", "source": "github", "title": "有个新 PR 需要评审", "inline": "有个新 PR 需要评审", "spilled": false, "spill_ref": null, "at": 1793591613, "reason": "来源 github 候选，交语义层判断", "verdict": "accepted"}
+{"id": "trig-1a19a641881", "thread": "pr-42", "source": "github", "title": "作者说改一下变量名", "inline": "作者说改一下变量名", "spilled": false, "spill_ref": null, "at": 1793591613, "reason": "来源 github 候选，交语义层判断", "verdict": "accepted"}
+{"id": "trig-1a19a641881", "thread": "user-trig-1a19a641881", "source": "user", "title": "这个视频转写一下 https://www.bilibili.com/video/BV1abc", "inline": "这个视频转写一下 https://www.bilibili.com/video/BV1abc", "spilled": false, "spill_ref": null, "at": 1793591613, "reason": "来源 user 标记为明确的请求", "verdict": "accepted"}
+{"id": "trig-1a19a641882", "thread": "user-trig-1a19a641882", "source": "user", "title": "英语 语文 作文", "inline": "英语 语文 作文", "spilled": false, "spill_ref": null, "at": 1793591613, "reason": "来源 user 标记为明确的请求", "verdict": "accepted"}
+{"id": null, "reason": "命中忽略规则 ^收到$", "verdict": "rejected"}
+{"id": "trig-1a19a64347a", "thread": "user-trig-1a19a64347a", "source": "user", "title": "帮我整理收集一下待办", "inline": "帮我整理收集一下待办", "spilled": false, "spill_ref": null, "at": 1793591620, "reason": "来源 user 标记为明确的请求", "verdict": "accepted"}
+{"id": "trig-1a19a64347d", "thread": "pr-42", "source": "github", "title": "有个新 PR 需要评审", "inline": "有个新 PR 需要评审", "spilled": false, "spill_ref": null, "at": 1793591620, "reason": "来源 github 候选，交语义层判断", "verdict": "accepted"}
+{"id": "trig-1a19a64347d", "thread": "pr-42", "source": "github", "title": "作者说改一下变量名", "inline": "作者说改一下变量名", "spilled": false, "spill_ref": null, "at": 1793591620, "reason": "来源 github 候选，交语义层判断", "verdict": "accepted"}
+{"id": "trig-1a19a64347d", "thread": "user-trig-1a19a64347d", "source": "user", "title": "这个视频转写一下 https://www.bilibili.com/video/BV1abc", "inline": "这个视频转写一下 https://www.bilibili.com/video/BV1abc", "spilled": false, "spill_ref": null, "at": 1793591620, "reason": "来源 user 标记为明确的请求", "verdict": "accepted"}
+{"id": "trig-1a19a64347d", "thread": "user-trig-1a19a64347d", "source": "user", "title": "英语 语文 作文", "inline": "英语 语文 作文", "spilled": false, "spill_ref": null, "at": 1793591620, "reason": "来源 user 标记为明确的请求", "verdict": "accepted"}
+{"id": null, "reason": "命中忽略规则 ^收到$", "verdict": "rejected"}
