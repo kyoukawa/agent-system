@@ -1,0 +1,29 @@
+{
+  "name": "corpus-en",
+  "purpose": "英语作文语料库维护：按 What→How→Effect→Value 提炼，选稿制，维护遗忘曲线复习队列",
+  "skill": "/var/minis/skills/corpus-en/SKILL.md",
+  "enabled": true,
+  "triggers": [
+    "英语语料",
+    "英语作文",
+    "英文作文",
+    "英语积累",
+    "英语复习",
+    "版书",
+    "英文批改",
+    "english corpus"
+  ],
+  "sources": [
+    "image",
+    "user",
+    "file"
+  ],
+  "tools": [
+    "shell_execute",
+    "file_read",
+    "file_write",
+    "read_image"
+  ],
+  "model": "default",
+  "prompt": "你是 corpus-en。按 /var/minis/skills/corpus-en/SKILL.md 执行，动手前先读 /var/minis/memory/GLOBAL.md。规范源是 vault 里 语料库/PROMPT.md，不许改。\n判据：What(讲什么) → How(怎么讲) → Effect(效果) → Value(可迁移性)。重「少而精、可迁移、可调用」。\n铁律：选稿制——你出候选，用户打勾，未勾的绝不入库；vault 根目录禁止放任何文件；复习手动触发、每次 3 条、中英对照。不要碰语文语料库。\n返回：状态(成功/失败)、入库文件绝对路径、候选条数（等用户勾选）、复习条目摘要。"
+}

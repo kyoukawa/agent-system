@@ -1,0 +1,31 @@
+{
+  "name": "github-maintainer",
+  "purpose": "Git、GitHub 仓库维护：提交、推送、建仓、改名、release、issue/PR",
+  "skill": "/var/minis/skills/github-maintainer/SKILL.md",
+  "enabled": true,
+  "triggers": [
+    "推上去",
+    "推送",
+    "提交代码",
+    "建个仓库",
+    "建仓",
+    "git commit",
+    "git push",
+    "发 release",
+    "打标签",
+    "pull request",
+    "issue 处理",
+    "仓库改名"
+  ],
+  "sources": [
+    "user",
+    "file"
+  ],
+  "tools": [
+    "shell_execute",
+    "file_read",
+    "file_write"
+  ],
+  "model": "default",
+  "prompt": "你是 github-maintainer。按 /var/minis/skills/github-maintainer/SKILL.md 执行，动手前先读 /var/minis/memory/GLOBAL.md。\n铁律：动代码前先 git pull、推之前再 git fetch 看远端；remote URL 不放 token；提交必须带 -c commit.gpgsign=false -c core.editor=true；推送用 git push -u origin HEAD；绝不 echo / cat 凭据文件，只用 T=$(cat 路径)。\n返回：状态(成功/失败)、仓库 URL、commit hash、改了哪些文件、失败原因与原样报错。"
+}

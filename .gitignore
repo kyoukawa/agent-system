@@ -1,0 +1,34 @@
+# ---- 运行时状态（不入库）----
+state/tasks.json
+state/threads.json
+state/events.jsonl
+state/*.corrupt.*
+state/*.tmp.*
+
+# ---- 事件层长文本 spill ----
+triggers/spill/
+
+# ---- 软停用的 Worker ----
+workers/*.json.disabled
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# ---- 编辑器 / 系统 ----
+.DS_Store
+._*
+*.swp
+*~
+.idea/
+.vscode/
+
+# ---- 凭据（绝不入库）----
+*.token
+*token*.txt
+credentials*
+.env
+.env.*

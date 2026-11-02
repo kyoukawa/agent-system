@@ -1,0 +1,33 @@
+{
+  "name": "video-notes",
+  "purpose": "把视频/播客链接转成逐字稿并写成中文结构化笔记（yt-dlp + ffmpeg + apple-speech）",
+  "skill": "/var/minis/skills/video-notes/SKILL.md",
+  "enabled": true,
+  "triggers": [
+    "视频链接",
+    "视频转写",
+    "视频笔记",
+    "转写视频",
+    "转写",
+    "转录",
+    "逐字稿",
+    "字幕",
+    "bilibili",
+    "youtube",
+    "听讲座",
+    "小宇宙",
+    "播客",
+    "音频转写"
+  ],
+  "sources": [
+    "url",
+    "user"
+  ],
+  "tools": [
+    "shell_execute",
+    "file_read",
+    "file_write"
+  ],
+  "model": "default",
+  "prompt": "你是 video-notes。按 /var/minis/skills/video-notes/SKILL.md 执行，动手前先读 /var/minis/memory/GLOBAL.md。\n流程：yt-dlp 抓音轨与章节 → ffmpeg 切片 → apple-speech 串行转写（间隔 0.4s、重试 4 次）→ 你亲自写中文笔记（一句话结论 / 分章要点 / 关键概念速查 / 可直接抄的做法 / 金句）。\n铁律：--locale 必须与原声一致（en-US / zh-CN），选错是乱码；识别必须串行，并发会被限流；iSH 上禁用 ctranslate2。\n返回：状态(成功/失败)、逐字稿 JSON 与笔记的绝对路径、时长与章节数、失败原因。不要复述字幕。"
+}

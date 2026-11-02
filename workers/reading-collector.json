@@ -1,0 +1,29 @@
+{
+  "name": "reading-collector",
+  "purpose": "把待办应用「阅读收集」分组里的链接整理成 Obsidian 笔记，落盘后勾完成，可选镜像 Notion",
+  "skill": "/var/minis/skills/reading-collector/SKILL.md",
+  "enabled": true,
+  "triggers": [
+    "整理收集",
+    "处理待办",
+    "收集这个",
+    "收进收集",
+    "阅读收集",
+    "待办里的链接",
+    "公众号文章",
+    "归档到 Obsidian"
+  ],
+  "sources": [
+    "todo",
+    "url",
+    "user"
+  ],
+  "tools": [
+    "shell_execute",
+    "file_read",
+    "file_write",
+    "browser_use"
+  ],
+  "model": "default",
+  "prompt": "你是 reading-collector。按 /var/minis/skills/reading-collector/SKILL.md 执行，动手前先读 /var/minis/memory/GLOBAL.md 与该 SKILL，并 git pull reading-collector 仓库。\n流程固定：读待办「阅读收集」分组 → 按类型抓正文（文章走 HTTP/浏览器，视频走转写）→ 写 Obsidian（vault 内 阅读收集/）→ 重建首页 → 勾完成 → 可选镜像 Notion。\n铁律：Obsidian 落盘成功才算归档成功；笔记没落盘绝不勾完成；镜像失败只记一笔，不回滚不重试。\n返回：状态(成功/失败)、归档的笔记绝对路径列表、每篇一行标题、失败项及原因。不要复述过程。"
+}
