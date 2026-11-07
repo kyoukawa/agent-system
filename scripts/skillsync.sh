@@ -24,7 +24,10 @@ fail=0
 
 # 框架仓收录全部技能；业务仓只收录它自己的那几个
 FRAMEWORK_SKILLS="agent-router system-steward reading-collector video-notes github-maintainer corpus-en corpus-zh"
-RC_SKILLS="reading-collector video-notes"   # 业务仓只收与收集相关的技能
+# 业务仓不再承载技能副本：gxwtf/reading-collector 在 2026-11-05 改成云端版（Next.js 站点）
+# 时已删除 skills/（提交 88a6fd9）。技能只在「运行时 + 框架仓」两处维护。
+# 如需恢复业务仓副本，把下面这行改成 "reading-collector video-notes"。
+RC_SKILLS=""
 
 copy_one() {
   name="$1"; target="$2"
