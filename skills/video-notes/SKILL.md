@@ -21,6 +21,20 @@ description: 把视频/播客链接转成逐字稿并写成中文结构化笔记
 | `apple` | macOS / iOS | `apple-speech` 命令，零配置免费 |
 | `whisper` | 任意平台 | `pip install faster-whisper`，x86_64 可用 |
 
+## 录音文件
+
+用户发的语音/会议录音直接转写，不需要是网络链接：
+
+```bash
+python3 "$RC/scripts/transcribe.py" "/path/to/录音.m4a" --locale zh-CN
+```
+
+支持 `m4a / mp3 / wav / aac / flac / ogg / opus / amr / 3gp / webm`，
+内部自动转成 16k 单声道再切片。**本地文件默认按中文识别**（个人录音多为中文），
+英文材料显式加 `--locale en-US`。
+
+> 手机上的录音一般要先放进 `/var/minis/attachments/` 或共享目录才能被沙箱读到。
+
 ## 用法
 
 ```bash

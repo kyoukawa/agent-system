@@ -10,7 +10,7 @@ description: 语文作文语料库维护。用户发来作文稿/批阅单，或
 语文作文语料库的执行 SOP。**规范源是 `PROMPT.md`，不要改。**
 
 ```bash
-CORPUS=/var/minis/mounts/7A84464D-AA03-41E8-A2F3-C38F2CA047D0/知识库/语文语料库
+CORPUS=/var/minis/mounts/dev/TheBook/语文语料库
 INTAKE=/Note/语文                   # 投料口（iOS 文件 App 里的 Note/语文）
 ```
 
@@ -72,11 +72,9 @@ INTAKE=/Note/语文                   # 投料口（iOS 文件 App 里的 Note/�
 
 ### 4. 复习队列
 
-`REVIEW/recall-queue.md`，格式与 due.sh 解析规则一致（见 `REVIEW/due.sh`）。
+`REVIEW/recall-queue.md`，保持这 9 列格式。
 
-```bash
-TODAY=$(date +%F) sh "$CORPUS/REVIEW/due.sh"
-```
+**不跑脚本**：直接读 `next_recall` 列，挑日期 ≤ 今天的条目。
 
 - 每次 3 条
 - 中英对照不适用（这里是中文），**给原句 + 出处 + 一句提示**

@@ -10,8 +10,8 @@ description: 英语作文语料库维护。用户发来版书图片/作文/批�
 英语作文语料库的执行 SOP。**规范源是 vault 里的 `PROMPT.md`，那是判定标准，不要改。**
 
 ```bash
-CORPUS=/var/minis/mounts/7A84464D-AA03-41E8-A2F3-C38F2CA047D0/知识库/语料库
-INTAKE=/var/minis/mounts/Note/En/收集      # 投料口
+CORPUS=/var/minis/mounts/dev/TheBook/英语语料库
+INTAKE=/var/minis/mounts/dev/英语素材       # 投料口（按主题分子文件夹）
 ```
 
 ## 两条铁律
@@ -28,7 +28,7 @@ INTAKE=/var/minis/mounts/Note/En/收集      # 投料口
 ├── INDEX.md            总索引 + 复习 Queue
 ├── corpus/             01-科技与城市生活.md … 00-跨主题句式库.md
 ├── proposals/          ← 候选落在这里，等用户打勾
-├── REVIEW/             due.sh + recall-queue.md
+├── REVIEW/             recall-queue.md（无脚本）
 └── images/             原始图片、转换后的页面图
 ```
 
@@ -68,7 +68,7 @@ ls "$INTAKE"                       # 只看根目录，跳过 已处理/
 
 ### 5. 维护复习队列
 
-`REVIEW/recall-queue.md` 表格格式不能改，`due.sh` 靠它解析：
+`REVIEW/recall-queue.md` 表格保持这 9 列：
 
 ```
 | unit_id | type | 来源文件 | 单元 | learned | interval | next_recall | last_result | notes |
@@ -78,9 +78,7 @@ ls "$INTAKE"                       # 只看根目录，跳过 已处理/
 
 ### 6. 复习（手动触发）
 
-```bash
-TODAY=$(date +%F) sh "$CORPUS/REVIEW/due.sh"
-```
+**不跑脚本**：直接读 `next_recall` 列，挑日期 ≤ 今天的条目。
 
 - 每次给 **3 条**
 - **抽卡背诵：直接给中英对照，用户自己背**
