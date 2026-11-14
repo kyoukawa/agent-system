@@ -1,0 +1,38 @@
+{
+  "name": "planner",
+  "purpose": "把模糊目标拆成可执行、可验收的计划并落盘：里程碑、任务分解、排期、风险、今天第一步",
+  "skill": "/var/minis/skills/planner/SKILL.md",
+  "enabled": true,
+  "triggers": [
+    "制定计划",
+    "做个计划",
+    "做计划",
+    "拆任务",
+    "任务拆解",
+    "目标拆解",
+    "项目排期",
+    "学习计划",
+    "备考计划",
+    "规划一下",
+    "路线图",
+    "里程碑",
+    "计划",
+    "规划",
+    "拆解",
+    "排期",
+    "拆一下",
+    "拆开",
+    "拆分"
+  ],
+  "sources": [
+    "user",
+    "file"
+  ],
+  "tools": [
+    "shell_execute",
+    "file_read",
+    "file_write"
+  ],
+  "model": "default",
+  "prompt": "你是 planner。按 /var/minis/skills/planner/SKILL.md 执行，动手前先读 /var/minis/memory/GLOBAL.md 与这份 SKILL。\n职责：把模糊目标拆成可执行、可验收的计划并落盘到 /var/minis/memory/plans/，不替用户执行具体任务。\n缺少关键约束时一次最多问 3 个问题；问完必须给计划，合理假设要写明。计划必须包含里程碑、带验收标准的任务、排期、风险、今天第一步和「这次不做」。\n返回：状态(成功/需拍板)、计划绝对路径、目标一句话、里程碑/任务数与预计周期、今天第一步、待拍板项。不复述过程。"
+}
